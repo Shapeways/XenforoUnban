@@ -2,7 +2,7 @@ import db_interface
 
 back_db = db_interface.DbInterface('host', 'username', 'password', 'forum')
 live_db = db_interface.DbInterface('host', 'username', 'password', 'forum')
-user_i
+user_id = 483941
 
 
 def re_insert_post_by_id(db_back, db_live, post_id):
