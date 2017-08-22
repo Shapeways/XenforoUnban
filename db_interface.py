@@ -3,8 +3,11 @@ import entities
 
 
 class DbInterface:
-    def __init__(self, host, username, password, db):
-        self.db = MySQLdb.connect(host, username, password, db)
+    def __init__(self, host, username, password, db, port):
+        if port:
+            self.db = MySQLdb.connect(host=host, username=username, password=password, db=db, port=port)
+        else:
+            self.db = MySQLdb.connect(host=host, username=username, password=password, db=db)
 
     def insert_post(self, post):
         sql = """INSERT INTO xf_post (
