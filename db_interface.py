@@ -268,7 +268,7 @@ class DbInterface:
         return attachments
 
     def get_post_ids_by_user_id(self, user_id):
-        sql = """SELECT post_id FROM forum.xf_post WHERE user_id = %s;"""
+        sql = """SELECT post_id FROM forum.xf_post WHERE user_id = %s AND message_state != 'deleted';"""
 
         values = (user_id,)
 

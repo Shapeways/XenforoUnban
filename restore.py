@@ -27,9 +27,10 @@ def re_insert_post_by_id(db_back, db_live, post_id):
 
     # bump thread's reply count
     thread = db_live.get_thread_by_id(post.thread_id)
-    thread.bump_reply_count()
-    db_live.update_thread(thread)
-    print 'Updated thread '
+    if thread:
+        thread.bump_reply_count()
+        db_live.update_thread(thread)
+        print 'Updated thread '
 
     thread_posts = db_live.get_posts_by_thread_id(post.thread_id)
     for (thread_post) in thread_posts:
